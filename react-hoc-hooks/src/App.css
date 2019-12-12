@@ -1,0 +1,6 @@
+.drag {
+  background-color: #666;
+  position: absolute;
+  cursor: move;
+  user-select: none;
+}
