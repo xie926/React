@@ -1,0 +1,1 @@
+export const  SEATCH_FOCUS = 'head/SEATCH_FOCUS'
