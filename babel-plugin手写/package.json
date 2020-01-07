@@ -1,0 +1,16 @@
+{
+  "name": "babel-plugin-M",
+  "version": "1.0.0",
+  "description": "源代码 -> 解析 -> AST(abstract syntax tree) -> 增删改查 -> AST -> 另外一份源代码",
+  "main": "index.js",
+  "scripts": {
+    "complie": "babel src --out-dir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7"
+  }
+}
