@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import store from './store'
-import axios from 'axios'
 import { /*getTodoListAction,*/getInitAction, getInputChangeAction, getAddTodoItemAction, getDeleteTodoItemAction} from './store/actionCreators';
 import TodoListUI from './TodoListUI'
 
