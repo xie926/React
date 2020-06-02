@@ -1,5 +1,5 @@
 {
-  "name": "backstage_management_system",
+  "name": "backstage",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
