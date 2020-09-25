@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import TodoItem from './TodoItem'
 import Test from './test'
+import  TestItem from './TestItem'
 class TodoList extends Component {
   constructor(props){
     super(props)
@@ -51,6 +52,9 @@ class TodoList extends Component {
             {this.getTodoItem()}
           </ul>
           <Test content={this.state.inputValue}/>
+        </div>
+        <div>
+          <TestItem />
         </div>
       </Fragment>
     )

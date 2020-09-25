@@ -3,11 +3,12 @@ import { Row, Col } from 'antd'
 import './index.less'
 import Util from '../../utils/utils'
 import axios from '../../axios'
+import {Link} from 'react-router-dom'
 class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userName: '谢妍'
+      userName: sessionStorage.getItem('username')
     }
   }
   // UNSAFE_componentWillMount() {
@@ -26,15 +27,14 @@ class Header extends Component {
   }
 
   getWeatherAPIData = () => {
-    let city = '北京';
     axios.jsonp({
-      url: 'http://api.map.baidu.com/telematics/v3/weather?location=' + encodeURIComponent(city) + '&output=json&ak=3p49MVra6urFRGOT9s8UBWr2'
+      url: 'https://www.tianqiapi.com/free/day?appid=58338557&appsecret=8G7VYGII'
     }).then((res) => {
-      if (res.status === 'success') {
-        let data = res.results[0].weather_data[0];
+      if (res) {
+        let data = res
         this.setState({
-          dayPictureUrl: data.dayPictureUrl,
-          weather: data.weather
+          dayPictureUrl: data.wea_img,
+          weather: data.wea
         })
       }
     })
@@ -42,18 +42,18 @@ class Header extends Component {
   render() {
     return (
       <>
-        <div>
-          <Row className="header">
-            <Col span="24" className="headerTop">
+        <div className="header">
+          <Row className="header-top">
+            <Col span={24}>
               <span>欢迎，{this.state.userName}</span>
-              <a href="/#">退出</a>
+              <Link to="/login">退出</Link>
             </Col>
           </Row>
           <Row className="breadcrumb">
-            <Col span="4" className="breadcrumb-title">
+            <Col span={4} className="breadcrumb-title">
               首页
             </Col>
-            <Col span="20" className="weather">
+            <Col span={20} className="weather">
               <span className="date">{this.state.sysTime}</span>
               <span className="weather-img">
                 <img src={this.state.dayPictureUrl} alt="" />

@@ -3,6 +3,7 @@ import MenuConfig from '../../config/menuConfig'
 import { Menu } from 'antd';
 // import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import './index.less'
+import {NavLink} from 'react-router-dom'
 
 const { SubMenu } = Menu;
 class NavLeft extends Component {
@@ -29,7 +30,9 @@ class NavLeft extends Component {
           </SubMenu>
         )
       }
-      return <Menu.Item key={item.key}>{item.title}</Menu.Item>
+      return <Menu.Item key={item.key}>
+        <NavLink to={item.key}>{item.title}</NavLink>
+      </Menu.Item>
     })
   }
 
@@ -41,7 +44,7 @@ class NavLeft extends Component {
           <h1>后台管理系统</h1>
         </div>
         <div>
-          <Menu style={{ width: 250 }} mode="vertical" theme="dark">
+          <Menu mode="vertical" theme="dark">
             {this.state.menuTreeNode}
           </Menu>
         </div>
